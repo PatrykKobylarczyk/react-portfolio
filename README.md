@@ -1,7 +1,7 @@
 # Portfolio with React.js
 
 ## Live
-https://react-portfolio-two-alpha.vercel.app/
+https://react-portfolio-patrykkobylarczyk.vercel.app/
 
 
 ## Built with: 
