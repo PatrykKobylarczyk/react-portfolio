@@ -67,7 +67,7 @@ const MySkills = () => {
                 Experience
               </p>
             </div>
-            <div className="w-1/2 md:w-3/4 h-32 bg-blue absolute right-0 top-0 z-[-1]"></div>
+            <div className="w-3/4 md:w-3/4 h-32 bg-blue absolute right-0 top-0 z-[-1]"></div>
           </div>
           <p className="mt-5">
             Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
@@ -94,7 +94,7 @@ const MySkills = () => {
                 Innovative
               </p>
             </div>
-            <div className="w-1/2 md:w-3/4 h-32 bg-red absolute right-0 top-0 z-[-1]"></div>
+            <div className="w-3/4 md:w-3/4 h-32 bg-red absolute right-0 top-0 z-[-1]"></div>
           </div>
           <p className="mt-5">
             Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
@@ -121,7 +121,7 @@ const MySkills = () => {
                 Imaginative
               </p>
             </div>
-            <div className="w-1/2 md:w-3/4 h-32 bg-yellow absolute right-0 top-0 z-[-1]"></div>
+            <div className="w-3/4 md:w-3/4 h-32 bg-yellow absolute right-0 top-0 z-[-1]"></div>
           </div>
           <p className="mt-5">
             At vero eos et accusam et justo duo dolores et ea rebum. Stet clita

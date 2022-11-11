@@ -1,25 +1,29 @@
 import React, { useState } from "react";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import useMediaQuery from "../hooks/useMediaQuery";
+import { motion } from "framer-motion";
 
-const Link = ({ page, selectedPage, setSelectedPage }) => {
+const Link = ({ page, selectedPage, setSelectedPage, setIsMenuToggled }) => {
   const lowerCasePage = page.toLowerCase();
   return (
     <AnchorLink
       className={`${selectedPage === lowerCasePage ? "text-yellow" : ""}
         hover:text-yellow transition duration-500`}
       href={`#${lowerCasePage}`}
-      onClick={() => setSelectedPage(lowerCasePage)}
+      onClick={() => {
+        setSelectedPage(lowerCasePage);
+        setIsMenuToggled(false);
+      }}
     >
       {page}
     </AnchorLink>
   );
 };
 
-const Navbar = ({isTopOfPage, selectedPage, setSelectedPage }) => {
+const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }) => {
   const [isMenuToggled, setIsMenuToggled] = useState(false);
   const isAboveSmallScreens = useMediaQuery("(min-width: 768px)");
-  const navbarBackground = isTopOfPage ? '' : 'bg-red'
+  const navbarBackground = isTopOfPage ? "" : "bg-red";
 
   return (
     <div className={`${navbarBackground} z-40 w-full fixed top-0 py-6`}>
@@ -58,7 +62,7 @@ const Navbar = ({isTopOfPage, selectedPage, setSelectedPage }) => {
         ) : (
           <button
             className="rounded-full bg-red p-2"
-            onClick={() => setIsMenuToggled(prev => !prev)}
+            onClick={() => setIsMenuToggled((prev) => !prev)}
           >
             <img alt="menu-icon" src="../assets/menu-icon.svg" />
           </button>
@@ -66,9 +70,14 @@ const Navbar = ({isTopOfPage, selectedPage, setSelectedPage }) => {
 
         {/* MOBILE MENU POPUP */}
         {!isAboveSmallScreens && isMenuToggled && (
-          <div className="fixed right-0 bottom-0 h-full bg-blue w-[300px]">
+          <motion.div
+            className="fixed right-0 bottom-0 h-full bg-blue w-[300px]"
+            initial={{ x: '100%' }}
+            animate={{ x: 0 }}
+            transition={{ease: 'easeInOut'}}
+          >
             {/* CLOSE ICON */}
-            <div className="flex justify-end p-12">
+            <div className="flex justify-end pt-8 pr-10">
               <button onClick={() => setIsMenuToggled((prev) => !prev)}>
                 <img src="../assets/close-icon.svg" alt="" />
               </button>
@@ -80,29 +89,34 @@ const Navbar = ({isTopOfPage, selectedPage, setSelectedPage }) => {
                 page="Home"
                 selectedPage={selectedPage}
                 setSelectedPage={setSelectedPage}
+                setIsMenuToggled={setIsMenuToggled}
               />
               <Link
                 page="Skills"
                 selectedPage={selectedPage}
                 setSelectedPage={setSelectedPage}
+                setIsMenuToggled={setIsMenuToggled}
               />
               <Link
                 page="Projects"
                 selectedPage={selectedPage}
                 setSelectedPage={setSelectedPage}
+                setIsMenuToggled={setIsMenuToggled}
               />
               <Link
                 page="Testimonials"
                 selectedPage={selectedPage}
                 setSelectedPage={setSelectedPage}
+                setIsMenuToggled={setIsMenuToggled}
               />
               <Link
                 page="Contact"
                 selectedPage={selectedPage}
                 setSelectedPage={setSelectedPage}
+                setIsMenuToggled={setIsMenuToggled}
               />
             </div>
-          </div>
+          </motion.div>
         )}
       </div>
     </div>
