@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import useMediaQuery from './hooks/useMediaQuery'
+import useMediaQuery from './hooks/useMediaQuery';
+import { motion } from "framer-motion";
 
 //COMPONENTS
 import Navbar from './scenes/Navbar'
@@ -20,7 +21,10 @@ function App() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY === 0) setIsTopOfPage(true);
+      if (window.scrollY === 0) {
+        setIsTopOfPage(true);
+        setSelectedPage('home');
+      }
       if (window.scrollY !== 0) setIsTopOfPage(false)
     }
 
@@ -49,21 +53,45 @@ function App() {
       </div>
       <LineGradient />
       <div className="w-5/6 mx-auto">
-        <MySkills />
+        <motion.div
+          margin="0 0 200px 0"
+          amount="all"
+          onViewportEnter={() => setSelectedPage("skills")}
+        >
+          <MySkills />
+        </motion.div>
       </div>
       <LineGradient />
       <div className="w-5/6 mx-auto">
-        <Projects />
+        <motion.div
+          margin="0 0 200px 0"
+          amount="all"
+          onViewportEnter={() => setSelectedPage("projects")}
+        >
+          <Projects />
+        </motion.div>
       </div>
       <LineGradient />
       <div className="w-5/6 mx-auto">
-        <Testimonials />
+        <motion.div
+          margin="0 0 200px 0"
+          amount="all"
+          onViewportEnter={() => setSelectedPage("testimonials")}
+        >
+          <Testimonials />
+        </motion.div>
       </div>
       <LineGradient />
       <div className="w-5/6 mx-auto">
-        <Contact />
+        <motion.div
+          margin="0 0 200px 0"
+          amount="all"
+          onViewportEnter={() => setSelectedPage("contact")}
+        >
+          <Contact />
+        </motion.div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 }
