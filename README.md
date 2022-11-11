@@ -1,7 +1,7 @@
 # Portfolio with React.js
 
 ## Live
-https://patrykkobylarczyk.github.io/fishky/
+https://react-portfolio-two-alpha.vercel.app/
 
 
 ## Built with: 
