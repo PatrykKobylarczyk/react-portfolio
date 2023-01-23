@@ -10,7 +10,6 @@ https://react-portfolio-patrykkobylarczyk.vercel.app/
 - SCSS
 - React router dom
 - React icons
-- Firebase
 
 ## Status:
 
